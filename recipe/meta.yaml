@@ -11,7 +11,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -19,15 +19,17 @@ requirements:
     - coreutils
     - make
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - setuptools
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - cppyy
     - cppyythonizations
     - gmp
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - gmpxxyy
 
